@@ -1,0 +1,28 @@
+module PWM(in_10Mhz,reset,out);
+	input in_10Mhz;
+	input reset;
+	output out;
+	reg[0:0] out;
+	reg[17:0] counter;
+	
+	always@(posedge in_10Mhz or negedge reset)
+	begin
+	if(!reset)
+	begin
+		counter <= 0;
+	end
+	else
+		if(counter == 200000-1 )
+		begin
+			counter <= 0;
+		end
+		else
+		begin
+			counter <= counter+ 1; 
+			if(counter < 20000)
+				out = 1;
+			else
+				out = 0;
+		end
+end
+endmodule

@@ -1,0 +1,28 @@
+#
+#
+# 
+# 06/07/16 16:15:09
+set_working_dir C:/Users/Student/Desktop/PWM_TSMC
+set_working_dir C:/altera/91/quartus/Louise2016y2sem1/PWM
+read  { C:/altera/91/quartus/Louise2016y2sem1/PWM/PWM.v }
+pre_optimize -common_logic -unused_logic -boundary -xor_comparator_optimize 
+pre_optimize -extract 
+set_attribute .work.PWM.INTERFACE.reset -name INPUT_MAX_LOAD -value "0.1" -port
+set_attribute .work.PWM.INTERFACE.reset -name ARRIVAL_TIME -value "18" -port
+set_attribute .work.PWM.INTERFACE.reset -name MAX_TRANS_RISE -value "0.5" -port
+set_attribute .work.PWM.INTERFACE.reset -name MAX_TRANS_FALL -value "0.5" -port
+set_attribute .work.PWM.INTERFACE.out(0) -name OUTPUT_LOAD -value "0.5" -port
+set_attribute .work.PWM.INTERFACE.out(0) -name REQUIRED_TIME -value "23" -port
+set_attribute .work.PWM.INTERFACE.out(0) -name MAX_TRANS_RISE -value "0.5" -port
+set_attribute .work.PWM.INTERFACE.out(0) -name MAX_TRANS_FALL -value "0.5" -port
+report_delay  -num_paths 1 -critical_paths -clock_frequency
+set_attribute .work.PWM.INTERFACE.out(0) -name REQUIRED_TIME -value "2.3" -port
+set_attribute .work.PWM.INTERFACE.out(0) -name REQUIRED_TIME -value "2.3" -port
+set_attribute .work.PWM.INTERFACE.out(0) -name REQUIRED_TIME -value "2.3" -port
+optimize .work.PWM.INTERFACE -target gdk_typ -macro -delay -effort quick -hierarchy auto 
+optimize_timing .work.PWM.INTERFACE 
+view_schematic -view
+report_delay  -num_paths 1 -critical_paths -clock_frequency
+report_area -cell_usage -all_leafs 
+set novendor_constraint_file FALSE
+auto_write -format Verilog PWM_Netlist.v

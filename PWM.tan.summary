@@ -1,0 +1,56 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 1.432 ns
+From           : reset
+To             : pulse~reg0
+From Clock     : --
+To Clock       : in_10Mhz
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 8.792 ns
+From           : pulse~reg0
+To             : pulse
+From Clock     : in_10Mhz
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -1.030 ns
+From           : reset
+To             : pulse~reg0
+From Clock     : --
+To Clock       : in_10Mhz
+Failed Paths   : 0
+
+Type           : Clock Setup: 'in_10Mhz'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 245.40 MHz ( period = 4.075 ns )
+From           : counter[5]
+To             : pulse~reg0
+From Clock     : in_10Mhz
+To Clock       : in_10Mhz
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+
